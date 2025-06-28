@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Ajustando empresas que devem ficar como destaques #20(45:56);
+// Arquivo atualizado para reposiorio, iniciando aula  #21(00:00) ajustando favoritos;
