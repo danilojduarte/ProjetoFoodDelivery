@@ -1,0 +1,13 @@
+Anotações Projeto:
+
+Para adicionar ou editar arquivos de "Categorias"
+*Necessário acessar o banco de dados (CATEGORIAS),
+Em seguida, atribuir a imagem ou dados em: Constantes 
+e assts {imagens}
+
+Para alterar as empresas que ficam em destaque
+na tela principal do "app";
+*Acessar o banco do dados e acessar a {DESTAQUES},
+em seguida, alterar a ordem das empresas;
+Video 20 minuto 46:34
+

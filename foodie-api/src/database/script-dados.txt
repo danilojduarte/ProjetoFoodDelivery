@@ -1,0 +1,152 @@
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (1, 'Pizza', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/pizza.png', 1);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (2, 'Lanches', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/burger.png', 2);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (3, 'Mercado', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/grocery.png', 3);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (4, 'Bebidas', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/alcohol.png', 4);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (5, 'Fast food', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/fastfood.png', 5);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (6, 'Doces', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/dessert.png', 6);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (7, 'Sushi', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/sushi.png', 7);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (8, 'Padaria', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/bakery.png', 8);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (9, 'Churrasco', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/bbq.png', 9);
+
+insert into categoria (id_categoria, categoria, icone, ordem) 
+values (10, 'Saudável', 'https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/healthy.png', 10);
+
+
+
+
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('McDonald''s', 'https://static-images.ifood.com.br/image/upload//capa/2b988c51-d3c3-4a8d-b39d-2f35153a6a0c/202104062010_vScH_m@2x.png', 'http://files.99coders.com.br/images/mcdonalds.jpg', 2, 5, 'Av. Paulista, 1500', 'Terreo', 'Paraiso', 'São Paulo', 'SP', '05821-000');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Black Dog', 'https://static-images.ifood.com.br/image/upload//capa/cd1b9efa-c98d-4d0f-8c1a-0595beac2594/202010302314_y044_i@2x.jpg', 'http://files.99coders.com.br/images/blackdog.jpg', 2, 7, 'Rua Bresser, 2814', NULL, 'Mooca', 'São Paulo', 'SP', '03162-030');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Burger King', 'https://www.ifood.com.br/static/images/merchant/banner/DEFAULT.png', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/ae3b42bf-7be3-4894-b5c6-0886af172256_BURGE_TIET01.jpg', 2, 3, 'Av. Morvan Dias de Figueiredo, 3177', NULL, 'Vila Guilherme', 'São Paulo', 'SP', '02063-902');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('The Fifties', 'https://static-images.ifood.com.br/image/upload//capa/8e2d2ac3-0383-4d8a-9618-aabdde9e7f97/202103221328_SJNN_c@2x.jpg', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/8e2d2ac3-0383-4d8a-9618-aabdde9e7f97/201904221316_vlN3_l.png', 2, 10, 'Travessa Casalbuono, 120', 'Loja 15', 'Vila Guilherme', 'São Paulo', 'SP', '05874-000');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Coco Bambu', 'https://static-images.ifood.com.br/image/upload//capa/4cdd2e7d-36b6-47e3-b435-428a77a7d967/202006301029_g9pc_c@2x.png', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/4cdd2e7d-36b6-47e3-b435-428a77a7d967/202104051028_0Lgp_.jpeg', 10, 7, 'Rua Azevedo Soares, 2150', NULL, 'Vila Gomes Cardim', 'São Paulo', 'SP', '45850-102');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Griletto', 'https://static-images.ifood.com.br/image/upload//capa/dd00250f-0d7d-4870-8535-141bd49401f8/202003251651_oM1F_c@2x.jpg', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/202006160729_dd00250f-0d7d-4870-8535-141bd49401f8.jpg', 9, 5, 'Av. Cruzeiro do Sul, 1100', NULL, 'Canindé', 'São Paulo', 'SP', '54214-850');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Habib''s', 'https://static-images.ifood.com.br/image/upload//capa/6f9edc7e-b983-475b-8037-005825ba5547/202102240952_NKL3_c@2x.jpg', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/6f9edc7e-b983-475b-8037-005825ba5547/202103031112_Vus1_i.jpg', 5, 3, 'Av Paes de Barros, 251', NULL, 'Mooca', 'São Paulo', 'SP', '52412-350');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Popeyes', 'https://internal.popeyesbrasil.com.br/storage/uploads/00000000088.png', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/202007291117_9d555bd6-30d9-4f29-845b-66e333edf840.png', 5, 4, 'Rua Goncalves Crespo, 78', NULL, 'Tatuapé', 'Campinas', 'SP', '41254-630');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Poke House', 'https://static-images.ifood.com.br/image/upload//capa/b73107a5-8ea9-4660-9d6f-8dd7a1aa011f/202103121521_Yvni_p@2x.png', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/b73107a5-8ea9-4660-9d6f-8dd7a1aa011f/202102151617_UBzw_i.png', 7, 5, 'Rua Pero Neto, 80', NULL, 'Vila da Saúde', 'São Paulo', 'SP', '02541-850');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Pop Vegan Food', 'https://static-images.ifood.com.br/image/upload//capa/006edb23-ddc3-4672-964c-aad30ed26779/202108021917_eSEW_a@2x.jpg', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/006edb23-ddc3-4672-964c-aad30ed26779/201911051628_ZsZa_i.png', 10, 5, 'R. Fernando de Albuquerque, 144', NULL, 'Consolação', 'São Paulo', 'SP', '57852-000');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Bonjour Dona Helena', 'https://static-images.ifood.com.br/image/upload//capa/46f8e654-84f7-4be7-b888-c45bbba2c149/201903011945_slide@2x.jpg', 'https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/27451313-e814-4a9d-9dcf-eebc7162efc0_BONJO_ELENA.jpg', 8, 3.5, 'R: Julio de Castilhos, 977', NULL, 'Belenzinho', 'São Paulo', 'SP', '03015-960');
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Pizza Hut', 'https://www.folhadealphaville.com.br/images/articles/5643/b2ap3_large_b2ap3_amp_pizzahutwe_20201005-111334_1.jpg', 'http://files.99coders.com.br/images/pizzahut.png', 1, 6, 'Rua Guarani, 266', NULL, 'Centro', 'Campinas', 'SP', '52140-520');
+
+
+
+
+
+
+insert into banner (id_banner, icone, id_empresa, ordem) 
+values (1, 'https://lh3.googleusercontent.com/pw/AM-JKLXmcyGblX7nqhb9UKe3TYI0asIW-exB5_s9frlnOSOkRUtJ5eTTgpo0QnT02Bbg_cVYZ1F2mFjbedDlH4fazAgNjkuDmY7PLFGbR06VM6qwGoKgVkt4B5azczDayLs5E3boIW-7jdE12qRiI_ejOrii=w310-h155-no', 1, 1);
+
+insert into banner (id_banner, icone, id_empresa, ordem) 
+values (2, 'https://lh3.googleusercontent.com/pw/AM-JKLVVWaXS1XqC3IusGD6HBIo05cW49NZFWtoxKfTyGtwktKJgwfqyehTH3IymbpnPQXWkwNb3Pm_k2ZAQh4EJR8h2Rsn_6F50iX3SPwMK2tBC3Y9tZSrJj1EzP2VFae60AsFJ7oBGLx9CDcVSFgH0OWOF=w310-h155-no', 2, 2);
+
+insert into banner (id_banner, icone, id_empresa, ordem) 
+values (3, 'https://lh3.googleusercontent.com/pw/AM-JKLXjiiI6CUyPAeY7N1UF5UWAacWk0pA1G-TDOUHAzr4Eq3g7_LwBl7kVOSlixQ425JXLKSkjeF6ord42ebAUE8GFoq7dtmGDXecy6Eolm0WqGgalR9MP3q0-26z3pCVhp0fo70P8v0KqV4pnv0wC1KOi=w310-h155-no?authuser=0', 3, 3);
+
+insert into banner (id_banner, icone, id_empresa, ordem) 
+values (4, 'https://lh3.googleusercontent.com/pw/AM-JKLVVWaXS1XqC3IusGD6HBIo05cW49NZFWtoxKfTyGtwktKJgwfqyehTH3IymbpnPQXWkwNb3Pm_k2ZAQh4EJR8h2Rsn_6F50iX3SPwMK2tBC3Y9tZSrJj1EzP2VFae60AsFJ7oBGLx9CDcVSFgH0OWOF=w310-h155-no', 4, 4);
+
+
+
+
+insert into destaque (id_empresa, ordem) 
+values (3, 1);
+
+insert into destaque (id_empresa, ordem) 
+values (1, 2);
+
+insert into destaque (id_empresa, ordem) 
+values (5, 3);
+
+
+
+
+insert into produto_categoria (id_empresa, categoria, ordem) 
+values (2, 'Dogs Individuais', 1);
+
+insert into produto_categoria (id_empresa, categoria, ordem) 
+values (2, 'Bebidas', 2);
+
+insert into produto_categoria (id_empresa, categoria, ordem) 
+values (1, 'Ofertas', 1);
+
+insert into produto_categoria (id_empresa, categoria, ordem) 
+values (11, 'Pizzas', 1);
+
+
+
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (2, 1, 'Hot Dog Maximus Fomão', 'Tradicional Fomao, 2 salsichas hot dog comum, milho, vinagrete, batata palha, maionese, purê, orégano, curry, parmesão, cheddar ou requeijão, pepperoni e marinara mexicana, e coberto por uma deliciosa crosta de parmesão.', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/cd1b9efa-c98d-4d0f-8c1a-0595beac2594/202108112007_P5N0_i.jpg', 14.9, 'S');
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (2, 1, 'Black Dog Cheddar Bacon', '2 Salsichas hot dog, Cheddar, Bacon, Curry e Oregano', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/cd1b9efa-c98d-4d0f-8c1a-0595beac2594/202108111938_3QAO_i.jpg', 22.9, 'S');
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (2, 1, 'Black Hot Dog Vinagrete', '2 Salsichas Hot Dog, Purê Vinagrete, Curry e Bacon', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/cd1b9efa-c98d-4d0f-8c1a-0595beac2594/202108111948_4R48_i.jpg', 30, 'S');
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (2, 1, 'Black Hot Dog Vinagrete', '2 Salsichas Hot Dog, Purê Vinagrete, Curry e Bacon', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/cd1b9efa-c98d-4d0f-8c1a-0595beac2594/202108111948_4R48_i.jpg', 19.90, 'S');
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (2, 2, 'Coca-Cola Lata', 'Coca-cola lata 330ml trincando de gelada', 'https://static.ifood-static.com.br/image/upload/t_low/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200237_btcjxya1zoh.jpg', 8, 'S');
+
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (1, 3, 'McOferta Big mac', 'Dois hambúrgueres, alface, queijo e molho especial, cebola e picles num pão com gergelim, acompanhamento e bebida', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/2b988c51-d3c3-4a8d-b39d-2f35153a6a0c/202108180417_xddjha30j6g.png', 49, 'S');
+
+insert into produto (id_empresa, id_categoria, nome, descricao, icone, vl_produto, ind_ativo) 
+values (11, 4, 'Pizza Quatro Queijos', 'Tradicional pizza de Catupiry, Mussarela, Provolone e Gorgonzola', 'https://static-images.ifood.com.br/image/upload/t_medium/pratos/ecfe7e9b-bdcc-4bdb-b919-833ad0c63675/201910251911_18jQ_f.jpg', 45, 'S');
+
+
+
+
+
+
+
+
+
+
+
+
+
