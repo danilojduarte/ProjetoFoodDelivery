@@ -2,7 +2,8 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./restaurante.style.js";
 
 function Restaurante(props) {
-    return <TouchableOpacity style={styles.restaurante} onPress={() => props.onPress()}>
+    return <TouchableOpacity style={styles.restaurante} 
+    onPress={() => props.onPress()}>
         <Image source={{ uri: props.logotipo}} style={styles.logotipo} />
         <View style={styles.textos}>
             <Text style={styles.nome}>{props.nome}</Text>

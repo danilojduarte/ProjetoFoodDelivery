@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Arquivo atualizado para reposiorio, iniciando aula  #21(00:00) ajustando favoritos;
+// Lista de favoritos criadas com sucesso, ajustando icone 21(18:38);
