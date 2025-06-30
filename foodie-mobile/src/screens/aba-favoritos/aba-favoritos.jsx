@@ -1,10 +1,13 @@
 import { FlatList, Image, Text, View } from "react-native";
-import { restaurantes } from "../../constants/dados.js";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
 import { styles } from "./aba-favoritos.style.js";
 
 function AbaFavoritos() {
+
+    const [restaurantes, setRestaurantes] = useState([]);
+
+
     return <View style={styles.container}>
         <FlatList data={restaurantes}
             keyExtractor={(restaurante) => restaurante.id}
