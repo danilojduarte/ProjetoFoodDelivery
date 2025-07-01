@@ -14,6 +14,7 @@ function Principal() {
 
         <Tab.Screen name="home" component={AbaHome} options={{
             headerShown: false,
+            unmountOnBlur: true,
             tabBarIcon: ({ focused }) => {
                 return <Image source={icons.abaHome}
                     style={{ width: 25, height: 25, opacity: focused ? 1 : 0.3 }} />
@@ -24,6 +25,7 @@ function Principal() {
             title: "Favoritos",
             headerTitleAlign: "center",
             headerShadowVisible: false,
+            unmountOnBlur: true,
             tabBarIcon: ({ focused }) => {
                 return <Image source={icons.abafavorito}
                     style={{ width: 25, height: 25, opacity: focused ? 1 : 0.3 }} />

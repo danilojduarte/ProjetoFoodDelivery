@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Lista de favoritos criadas com sucesso, ajustando icone 21(18:38);
+// Lista de favoritos criadas com sucesso, ajustando remove e add favoritos 21(35:34);
