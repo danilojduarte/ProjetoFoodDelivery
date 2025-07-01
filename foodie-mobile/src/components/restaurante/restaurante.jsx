@@ -9,7 +9,7 @@ function Restaurante(props) {
             <Text style={styles.nome}>{props.nome}</Text>
             <Text style={styles.endereco}>{props.endereco}</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.onClickIcon(props.id_empresa)}>
             <Image source={props.icone} style={styles.favorito} />
         </TouchableOpacity>
     </TouchableOpacity>
