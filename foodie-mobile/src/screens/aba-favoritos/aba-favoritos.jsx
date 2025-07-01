@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Alert, FlatList, Image, Text, View } from "react-native";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
@@ -40,7 +40,9 @@ function AbaFavoritos() {
                 return <Restaurante nome={item.nome}
                     endereco={item.endereco}
                     logotipo={item.icone}
-                    icone={icons.remove} />
+                    icone={icons.remove} 
+                    onPress={OpenCardapio}
+                    />
             }}
 
             contentContainerStyle={styles.containerList}
