@@ -16,13 +16,11 @@ function AbaHome(props) {
 
         try {
             const response = await api.get("/categorias");
-                
+
             if (response.data) {
                 setCategorias(response.data);
             }
         } catch (error) {
-            setLoading(false);
-            await SaveUsuario({});
             if (error.response?.data.error)
                 Alert.alert(error.response.data.error);
             else
@@ -34,13 +32,11 @@ function AbaHome(props) {
 
         try {
             const response = await api.get("/banners");
-                
+
             if (response.data) {
                 setBanner(response.data);
             }
         } catch (error) {
-            setLoading(false);
-            await SaveUsuario({});
             if (error.response?.data.error)
                 Alert.alert(error.response.data.error);
             else
@@ -52,13 +48,11 @@ function AbaHome(props) {
 
         try {
             const response = await api.get("/empresas/destaques");
-                
+
             if (response.data) {
                 setRestaurantes(response.data);
             }
         } catch (error) {
-            setLoading(false);
-            await SaveUsuario({});
             if (error.response?.data.error)
                 Alert.alert(error.response.data.error);
             else
@@ -66,45 +60,43 @@ function AbaHome(props) {
         }
     }
 
-    function OpenCardapio() {
-        props.navigation.navigate("cardapio");
+    function OpenCardapio(id) {
+        props.navigation.navigate("cardapio", {
+            id_empresa: id
+        });
     }
 
     async function RemoveFavorito(id) {
-                
-                try {
-                    const response = await api.delete("/empresas/" + id + "/favoritos" );
-                        
-                    if (response.data) {
-                        LoadDestaque();
-                    }
-                } catch (error) {
-                    setLoading(false);
-                    await SaveUsuario({});
-                    if (error.response?.data.error)
-                        Alert.alert(error.response.data.error);
-                    else
-                        Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
-                }
+
+        try {
+            const response = await api.delete("/empresas/" + id + "/favoritos");
+
+            if (response.data) {
+                LoadDestaque();
+            }
+        } catch (error) {
+            if (error.response?.data.error)
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+        }
     }
 
     async function AddFavorito(id) {
-            
-            try {
-                const response = await api.post("/empresas/" + id + "/favoritos" );
-                    
-                if (response.data) {
-                    LoadDestaque();
-                }
-            } catch (error) {
-                setLoading(false);
-                await SaveUsuario({});
-                if (error.response?.data.error)
-                    Alert.alert(error.response.data.error);
-                else
-                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+
+        try {
+            const response = await api.post("/empresas/" + id + "/favoritos");
+
+            if (response.data) {
+                LoadDestaque();
             }
+        } catch (error) {
+            if (error.response?.data.error)
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
         }
+    }
 
     const [busca, setBusca] = useState("");
     const [categorias, setCategorias] = useState([]);
@@ -150,9 +142,9 @@ function AbaHome(props) {
                             nome={restaurante.nome}
                             endereco={restaurante.endereco}
                             icone={restaurante.favorito == "S" ? icons.favoritoFull : icons.favorito}
-                            onPress={OpenCardapio} 
+                            onPress={OpenCardapio}
                             onClickIcon={restaurante.favorito == "S" ? RemoveFavorito : AddFavorito}
-                            />
+                        />
                     </View>
                 })
             }
