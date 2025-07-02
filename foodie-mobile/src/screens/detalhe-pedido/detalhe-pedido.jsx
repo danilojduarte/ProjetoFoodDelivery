@@ -3,20 +3,37 @@ import { styles } from "./pedido-detalhe.style.js";
 import icons from "../../constants/icons.js";
 import { pedido } from "../../constants/dados.js";
 import Produto from "../../components/produto/produto.jsx";
-
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 
 function DetalhePedido(props) {
+
+    // Exemplo de função para buscar pedidos no futuro
+    function LoadPedidos() {
+        console.log("Tela Pedidos focada — aqui você poderia carregar pedidos da API");
+        // Exemplo: await api.get('/pedidos')...
+    }
+
+    useFocusEffect(
+        useCallback(() => {
+            LoadPedidos();
+        }, [])
+    );
+
     return <View style={styles.container}>
 
-        <FlatList data={pedido.itens}
+        <FlatList
+            data={pedido.itens}
             keyExtractor={(item) => item.idItem}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Produto key={item.idItem}
+                return <Produto
+                    key={item.idItem}
                     foto={item.foto}
                     nome={item.nome}
                     descricao={item.descricao}
-                    valor={item.vlTotal} />
+                    valor={item.vlTotal}
+                />
             }}
         />
 

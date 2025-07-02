@@ -3,16 +3,27 @@ import { styles } from "./aba-perfil.style.js";
 import icons from "../../constants/icons.js";
 import { SaveUsuario } from "../../storage/storage.usuario.js";
 import { AuthContext } from "../../contexts/auth.js";
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 
 function AbaPerfil() {
-
     const { setUser } = useContext(AuthContext);
 
     function Logout() {
         SaveUsuario({});
         setUser({});
     }
+
+    function LoadPerfil() {
+        console.log("Aba Perfil focada — aqui você pode buscar dados atualizados do usuário");
+        // Exemplo: api.get("/meu-perfil")...
+    }
+
+    useFocusEffect(
+        useCallback(() => {
+            LoadPerfil();
+        }, [])
+    );
 
     return <View style={styles.container}>
 
