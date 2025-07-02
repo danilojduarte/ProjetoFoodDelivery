@@ -12,6 +12,7 @@ function TextBox(props) {
             secureTextEntry={props.isPassword}
             onChangeText={(texto) => props.onChangeText(texto)}
             value={props.value}
+            returnKeyType="search"
         />
     </>
 }
