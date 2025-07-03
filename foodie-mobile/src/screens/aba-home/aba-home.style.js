@@ -13,7 +13,7 @@ export const styles = {
     },
     logo: {
         width: 140,
-        height: 45,
+        height: 42,
     },
     cart: {
         width: 30,

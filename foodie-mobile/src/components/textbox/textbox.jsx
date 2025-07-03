@@ -12,7 +12,8 @@ function TextBox(props) {
             secureTextEntry={props.isPassword}
             onChangeText={(texto) => props.onChangeText(texto)}
             value={props.value}
-            returnKeyType="search"
+            returnKeyType={props.returnKeyType ? props.returnKeyType : "default"}
+            onSubmitEditing={(value) => props.onSubmit && props.onSubmit(value.nativeEvent.text)}
         />
     </>
 }

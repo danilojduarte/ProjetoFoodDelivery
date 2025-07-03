@@ -85,6 +85,10 @@ function AbaHome(props) {
         }
     }
 
+    function Search(termo) {
+        console.log("Busca por: " + termo);
+    }
+
     useEffect(() => {
         LoadCategory();
         LoadBanner();
@@ -115,6 +119,8 @@ function AbaHome(props) {
                     placeholder="O que vamos pedir hoje?"
                     onChangeText={(texto) => setBusca(texto)}
                     value={busca}
+                    returnKeyType="search"
+                    onSubmit={Search}
                 />
             </View>
 
