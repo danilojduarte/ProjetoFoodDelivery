@@ -10,7 +10,7 @@ export const styles = {
     },
     form: {
         width: "100%",
-        marginBottom: 25
+        marginBottom: 25,
     },
     formGroup: {
         width: "100%",

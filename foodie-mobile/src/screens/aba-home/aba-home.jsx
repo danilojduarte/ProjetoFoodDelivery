@@ -104,7 +104,7 @@ function AbaHome(props) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
-                <Image source={icons.logo} style={styles.logo} />
+                <Image source={icons.logo2} style={styles.logo} />
                 <TouchableOpacity onPress={() => props.navigation.navigate("checkout")}>
                     <Image source={icons.cart} style={styles.cart} />
                 </TouchableOpacity>

@@ -6,7 +6,7 @@ export const styles = {
         alignItems: "center"
     },
     logo: {
-        width: 170,
+        width: 200,
         height: 50
     },
     titulo: {
