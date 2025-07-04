@@ -21,13 +21,17 @@ function RoutesAuth() {
             }} />
 
             <Stack.Screen name="busca" component={Busca} options={{
-                headerShown: false
+                title: "Resultado da Busca",
+                headerTitleAlign: "center",
+                headerTintColor: COLORS.dark_gray,
+                headerShadowVisible: false,
             }} />            
 
             <Stack.Screen name="checkout" component={Checkout} options={{
                 headerShadowVisible: false,
                 title: "Meu Pedido",
                 headerTitleAlign: "center",
+                headerTintColor: COLORS.dark_gray,
                 headerRight: () => {
                     return <TouchableOpacity onPress={() => alert("OK")}>
                         <Text style={{ color: COLORS.red }}>Limpar</Text>

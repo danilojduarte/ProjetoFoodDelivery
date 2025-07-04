@@ -86,7 +86,9 @@ function AbaHome(props) {
     }
 
     function Search(termo) {
-        console.log("Busca por: " + termo);
+        props.navigation.navigate("busca", {
+            busca: termo
+        });
     }
 
     useEffect(() => {

@@ -4,7 +4,9 @@ import { restaurantes } from "../../constants/dados.js";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
 
-function Busca() {
+function Busca(props) {
+    const busca = props.route.params.busca;
+    console.log("Busca por: " + busca);
 
     function restaurante () {
 
