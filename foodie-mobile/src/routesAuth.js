@@ -20,6 +20,10 @@ function RoutesAuth() {
                 headerShown: false
             }} />
 
+            <Stack.Screen name="busca" component={Busca} options={{
+                headerShown: false
+            }} />            
+
             <Stack.Screen name="checkout" component={Checkout} options={{
                 headerShadowVisible: false,
                 title: "Meu Pedido",
@@ -49,9 +53,7 @@ function RoutesAuth() {
                 headerShown: false
             }} />
 
-            <Stack.Screen name="busca" component={Busca} options={{
-                headerShown: false
-            }} />
+            
         </Stack.Navigator>
 
     </NavigationContainer>

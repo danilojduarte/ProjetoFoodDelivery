@@ -5,15 +5,32 @@ import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
 
 function Busca() {
+
+    function restaurante () {
+
+    }
+
+    function OpenCardapio() {
+
+    }
+
+    function AddFavorito() {
+
+    }
+
     return <View style={styles.container}>
         <FlatList data={restaurantes}
             keyExtractor={(restaurante) => restaurante.id}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Restaurante nome={item.nome}
+                return <Restaurante id_empresa={item.id_empresa}
+                    logotipo={item.icone}
+                    nome={item.nome}
                     endereco={item.endereco}
-                    logotipo={item.logotipo}
-                    icone={icons.favoritoFull} />
+                    icone={item.favorito == "S" ? icons.favoritoFull : icons.favorito}
+                    onPress={OpenCardapio}
+                    onClickIcon={item.favorito == "S" ? RemoveFavorito : AddFavorito}
+                />
             }}
 
             contentContainerStyle={styles.containerList}

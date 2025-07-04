@@ -51,52 +51,34 @@ export const banners = [
 
 export const restaurantes = [
     {
-        id: 1,
-        nome: "Churrascaria e Pizzaria Boizão",
-        endereco: "Alamensa Santos, 954",
-        logotipo: require("../assets/restaurante1.png")
+        "favorito": "N",
+        "id_empresa": 11,
+        "nome": "Bonjour Dona Helena",
+        "foto": "https://static-images.ifood.com.br/image/upload//capa/46f8e654-84f7-4be7-b888-c45bbba2c149/201903011945_slide@2x.jpg",
+        "icone": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/27451313-e814-4a9d-9dcf-eebc7162efc0_BONJO_ELENA.jpg",
+        "id_categoria": 8,
+        "vl_taxa_entrega": 3.5,
+        "endereco": "R: Julio de Castilhos, 977",
+        "complemento": null,
+        "bairro": "Belenzinho",
+        "cidade": "São Paulo",
+        "uf": "SP",
+        "cep": "03015-960"
     },
     {
-        id: 2,
-        nome: "The Keba’s Bar",
-        endereco: "Rua Rui Barbosa, 512",
-        logotipo: require("../assets/restaurante2.png")
-    },
-    {
-        id: 3,
-        nome: "Churrascaria e Pizzaria Boizão",
-        endereco: "Alamensa Santos, 954",
-        logotipo: require("../assets/restaurante1.png")
-    },
-    {
-        id: 4,
-        nome: "The Keba’s Bar",
-        endereco: "Rua Rui Barbosa, 512",
-        logotipo: require("../assets/restaurante2.png")
-    },
-    {
-        id: 5,
-        nome: "Churrascaria e Pizzaria Boizão",
-        endereco: "Alamensa Santos, 954",
-        logotipo: require("../assets/restaurante1.png")
-    },
-    {
-        id: 6,
-        nome: "The Keba’s Bar",
-        endereco: "Rua Rui Barbosa, 512",
-        logotipo: require("../assets/restaurante2.png")
-    },
-    {
-        id: 7,
-        nome: "Churrascaria e Pizzaria Boizão",
-        endereco: "Alamensa Santos, 954",
-        logotipo: require("../assets/restaurante1.png")
-    },
-    {
-        id: 8,
-        nome: "The Keba’s Bar",
-        endereco: "Rua Rui Barbosa, 512",
-        logotipo: require("../assets/restaurante2.png")
+        "favorito": "N",
+        "id_empresa": 1,
+        "nome": "McDonald's",
+        "foto": "https://static-images.ifood.com.br/image/upload//capa/2b988c51-d3c3-4a8d-b39d-2f35153a6a0c/202104062010_vScH_m@2x.png",
+        "icone": "http://files.99coders.com.br/images/mcdonalds.jpg",
+        "id_categoria": 2,
+        "vl_taxa_entrega": 5,
+        "endereco": "Av. Paulista, 1500",
+        "complemento": "Terreo",
+        "bairro": "Paraiso",
+        "cidade": "São Paulo",
+        "uf": "SP",
+        "cep": "05821-000"
     }
 ];
 
