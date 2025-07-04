@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Iniciando ajuste na function de search do app #22(17:37);
+// Ajustando dados para tela de busca #22(39:00);

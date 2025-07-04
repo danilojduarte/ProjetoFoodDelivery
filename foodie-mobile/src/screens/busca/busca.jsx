@@ -3,6 +3,7 @@ import { styles } from "./busca.style.js";
 import { restaurantes } from "../../constants/dados.js";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
+import api from "../../constants/api.js";
 
 function Busca(props) {
     const busca = props.route.params.busca;
