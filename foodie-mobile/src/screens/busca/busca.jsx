@@ -1,13 +1,12 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Text, View, Alert } from "react-native";
 import { styles } from "./busca.style.js";
-import { restaurantes } from "../../constants/dados.js";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import icons from "../../constants/icons.js";
 import api from "../../constants/api.js";
 
 function Busca(props) {
     const busca = props.route.params.busca;
-    console.log("Busca por: " + busca);
+    const [restaurantes, setRestaurantes] = useState([]);
 
     function restaurante () {
 
@@ -20,6 +19,24 @@ function Busca(props) {
     function AddFavorito() {
 
     }
+
+    async function LoadSearch() {
+            try {
+                const response = await api.get("/empresas", {
+                    params:{
+                        busca: busca
+                    }
+                });
+                if (response.data) {
+                    setRestaurantes(response.data);
+                }
+            } catch (error) {
+                if (error.response?.data.error)
+                    Alert.alert(error.response.data.error);
+                else
+                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+            }
+        }
 
     return <View style={styles.container}>
         <FlatList data={restaurantes}
@@ -41,7 +58,7 @@ function Busca(props) {
             ListEmptyComponent={() => {
                 return <View style={styles.empty}>
                     <Image source={icons.empty} />
-                    <Text style={styles.emptyText}>Nenhum favorito encontrado</Text>
+                    <Text style={styles.emptyText}>Nenhum item encontrado</Text>
                 </View>
             }}
         />

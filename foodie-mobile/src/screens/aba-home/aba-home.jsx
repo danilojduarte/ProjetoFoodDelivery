@@ -45,10 +45,13 @@ function AbaHome(props) {
             if (response.data) {
                 setRestaurantes(response.data);
             }
-        } catch (error) {
-            handleError(error);
+            } catch (error) {
+                if (error.response?.data.error)
+                    Alert.alert(error.response.data.error);
+                else
+                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+            }
         }
-    }
 
     function handleError(error) {
         if (error.response?.data.error)
