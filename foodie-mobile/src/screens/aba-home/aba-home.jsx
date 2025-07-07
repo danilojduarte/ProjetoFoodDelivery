@@ -94,6 +94,19 @@ function AbaHome(props) {
         });
     }
 
+    function SearchCategoria(id) {
+        props.navigation.navigate("busca", {
+            id_categoria: id
+        });
+    }
+
+    function SearchBanner(id) {
+        props.navigation.navigate("busca", {
+            id_banner: id
+        });
+    }
+
+
     useEffect(() => {
         LoadCategory();
         LoadBanner();
@@ -130,8 +143,8 @@ function AbaHome(props) {
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Categorias dados={categorias} />
-                <Banners dados={banners} />
+                <Categorias dados={categorias} onClick={SearchCategoria}/>
+                <Banners dados={banners} onClick={SearchBanner}/>
 
                 <View>
                     <Text style={styles.destaques}>Destaques</Text>
