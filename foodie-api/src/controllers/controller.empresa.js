@@ -15,7 +15,9 @@ async function Listar(req, res) {
     try {
         const id_usuario = req.id_usuario;
         const busca = req.query.busca;
-        const empresas = await serviceEmpresa.Listar(id_usuario, busca);
+        const id_categoria = req.query.id_categoria;
+        const id_banner = req.query.id_banner;
+        const empresas = await serviceEmpresa.Listar(id_usuario, busca, id_categoria, id_banner);
 
         res.status(200).json(empresas);
     } catch (error) {

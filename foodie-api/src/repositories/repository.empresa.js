@@ -13,18 +13,31 @@ async function Destaques(id_usuario) {
     return empresas;
 }
 
-async function Listar(id_usuario, busca) {
+async function Listar(id_usuario, busca, id_categoria, id_banner) {
 
     let filtro = [id_usuario];
 
     let sql = `select case when u.id_favorito is null then 'N' else 'S' end as favorito, e.*
     from  empresa e
-    left join usuario_favorito u on (u.id_empresa = e.id_empresa and u.id_usuario = ?)`;
+    left join usuario_favorito u on (u.id_empresa = e.id_empresa and u.id_usuario = ?)
+    left join banner b on (b.id_empresa = e.id_empresa)
+    where e.id_empresa > 0`;
 
     if (busca) {
         filtro.push('%' + busca + '%');
-        sql = sql + " where e.nome like ?";
+        sql = sql + " and e.nome like ?";
     }
+
+    if (id_categoria) {
+        filtro.push(id_categoria);
+        sql = sql + " and e.id_categoria = ?";
+    }
+
+    if (id_banner) {
+        filtro.push(id_banner);
+        sql = sql + " and b.id_banner = ?";
+    }
+
 
     sql = sql + " order by e.nome";
 
