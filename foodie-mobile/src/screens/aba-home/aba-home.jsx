@@ -116,7 +116,7 @@ function AbaHome(props) {
     // 💡 Aqui adicionamos as funções para recarregar ao focar
     useFocusEffect(
         useCallback(() => {
-            console.log("Aba Home focada — recarregando dados");
+            // console.log("Aba Home focada — recarregando dados");
             LoadCategory();
             LoadBanner();
             LoadDestaque();
