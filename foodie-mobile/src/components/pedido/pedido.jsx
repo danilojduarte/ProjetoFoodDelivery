@@ -11,7 +11,7 @@ function Pedido(props) {
             <View style={styles.containerValor}>
                 <Text style={styles.valor}>
                     {
-                        new Intl.NumberFormat("", { style: "currency", currency: "BRL" }).format(props.valor)
+                        new Intl.NumberFormat("pt-br", { style: "currency", currency: "BRL" }).format(props.valor)
                     }
                 </Text>
                 <Text style={styles.valor}>{props.dt_pedido}</Text>
