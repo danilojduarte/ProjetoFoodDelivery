@@ -5,6 +5,9 @@ import Pedido from "../../components/pedido/pedido.jsx";
 import { useEffect, useState } from "react";
 import api from "../../constants/api.js";
 
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
+
 
 function AbaPedidos(props) {
 
@@ -32,16 +35,23 @@ function AbaPedidos(props) {
         LoadPedido();
     }, [])
 
+    useFocusEffect(
+        useCallback(() => {
+            console.log("Aba Pedidos focada — recarregar pedidos");
+            LoadPedido();
+        }, [])
+    );
+
     return <View style={styles.container}>
         <FlatList data={pedidos}
-            keyExtractor={(ped) => ped.id}
+            keyExtractor={(ped) => ped.id_pedido.toString()}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Pedido logotipo={item.logotipo}
+                return <Pedido logotipo={item.icone}
                     nome={item.nome}
                     valor={item.vl_total}
                     dt_pedido={item.dt_pedido}
-                    status={item.status}
+                    status={item.descricao_status}
                     onClickPedido={DetalhePedido} />
             }}
 
