@@ -69,6 +69,14 @@ values ('Bonjour Dona Helena', 'https://static-images.ifood.com.br/image/upload/
 insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
 values ('Pizza Hut', 'https://www.folhadealphaville.com.br/images/articles/5643/b2ap3_large_b2ap3_amp_pizzahutwe_20201005-111334_1.jpg', 'http://files.99coders.com.br/images/pizzahut.png', 1, 6, 'Rua Guarani, 266', NULL, 'Centro', 'Campinas', 'SP', '52140-520');
 
+{Inserindo novas empresas}
+
+insert into empresa (nome, foto, icone, id_categoria, vl_taxa_entrega, endereco, complemento, bairro, cidade, uf, cep) 
+values ('Banzai Sushi', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7r2eBZyUp-wKDpZPtVFQBokJehbCT2gAEA&s', 
+'https://drive.google.com/file/d/12-GJHW7qTJKsPadG3RVySwmc-4wwjK8v/view?usp=sharing', 1, 6, 'Rua Rosa Celeste, 391', NULL, 'Jardins', 'SGA', 'RN', '59293-414');
+
+https://drive.google.com/file/d/12-GJHW7qTJKsPadG3RVySwmc-4wwjK8v/view?usp=sharing
+
 
 
 
