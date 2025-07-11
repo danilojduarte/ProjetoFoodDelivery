@@ -5,7 +5,7 @@ function Pedido(props) {
 
     const dt = new Date(props.dt_pedido);
 
-    return <TouchableOpacity style={styles.pedido} onPress={() => props.onClickPedido()}>
+    return <TouchableOpacity style={styles.pedido} onPress={() => props.onClickPedido(props.id_pedido)}>
         <Image source={{ uri: props.logotipo }} style={styles.logotipo} />
 
         <View style={styles.textos}>

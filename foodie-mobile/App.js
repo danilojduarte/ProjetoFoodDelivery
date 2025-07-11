@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 23(41:41)- Consulta e status pedido fializada, iniciando abertura de pedido;
+// Aula 23(56:37)- Ajustando dados pedidos, erro ao consultar dados pedido;

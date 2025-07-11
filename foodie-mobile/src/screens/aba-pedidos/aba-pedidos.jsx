@@ -13,11 +13,13 @@ function AbaPedidos(props) {
 
     const [pedidos, setPedidos] = useState([]);
 
-    function DetalhePedido() {
-        props.navigation.navigate("detalhe-pedido");
+    function DetalhePedido(id) {
+        props.navigation.navigate("detalhe-pedido", {
+            id_pedido: id
+        });
     }
 
-    async function LoadPedido() {
+    async function LoadPedidos() {
         try {
             const response = await api.get("/pedidos");
             if (response.data) {
@@ -32,13 +34,13 @@ function AbaPedidos(props) {
     }
 
     useEffect(() => {
-        LoadPedido();
+        LoadPedidos();
     }, [])
 
     useFocusEffect(
         useCallback(() => {
             // console.log("Aba Pedidos focada — recarregar pedidos");
-            LoadPedido();
+            LoadPedidos();
         }, [])
     );
 
