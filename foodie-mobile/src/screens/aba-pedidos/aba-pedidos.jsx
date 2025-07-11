@@ -37,7 +37,7 @@ function AbaPedidos(props) {
 
     useFocusEffect(
         useCallback(() => {
-            console.log("Aba Pedidos focada — recarregar pedidos");
+            // console.log("Aba Pedidos focada — recarregar pedidos");
             LoadPedido();
         }, [])
     );
@@ -52,6 +52,7 @@ function AbaPedidos(props) {
                     valor={item.vl_total}
                     dt_pedido={item.dt_pedido}
                     status={item.descricao_status}
+                    id_pedido={item.id_pedido}
                     onClickPedido={DetalhePedido} />
             }}
 

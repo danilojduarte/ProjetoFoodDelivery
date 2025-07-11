@@ -19,7 +19,7 @@ function Pedido(props) {
                 </Text>
                 <Text style={styles.valor}>{dt.toLocaleDateString()}</Text>
             </View>
-            <Text style={styles.status}>{props.status}</Text>
+            <Text style={styles.status}>Pedido: {props.id_pedido} - {props.status}</Text>
         </View>
 
     </TouchableOpacity>
