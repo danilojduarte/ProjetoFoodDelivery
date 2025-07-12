@@ -2,7 +2,7 @@ import { execute } from "../database/sqlite.js";
 
 async function Listar() {
 
-    const sql = `select p.*, e.nome, e.icone, s.descricao as descricao_status, 'orange' as color
+    const sql = `select p.*, e.nome, e.icone, s.descricao as descricao_status, s.cor
     from pedido p
     join empresa e on (e.id_empresa = p.id_empresa)
     join pedido_status s on (s.status = p.status)

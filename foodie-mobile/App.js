@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 23(56:37)- Ajustando dados pedidos, erro ao consultar dados pedido;
+// Aula 23(00:00) Finalizada - Aula finalizada, iniciando aula 24# tela de cardapio|tela empresa;

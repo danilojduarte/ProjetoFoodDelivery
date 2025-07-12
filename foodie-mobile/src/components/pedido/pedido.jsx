@@ -19,7 +19,7 @@ function Pedido(props) {
                 </Text>
                 <Text style={styles.valor}>{dt.toLocaleDateString()}</Text>
             </View>
-            <Text style={styles.status}>Pedido: {props.id_pedido}</Text>
+            <Text style={styles.valor}>Pedido: {props.id_pedido}</Text>
             <Text style={{ color: props.color }}>{props.status}</Text>
         </View>
 
