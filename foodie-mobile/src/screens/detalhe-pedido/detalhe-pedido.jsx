@@ -1,6 +1,5 @@
-import { Image, TouchableOpacity, View, Text, FlatList, Alert } from "react-native";
+import { View, Text, FlatList, Alert } from "react-native";
 import { styles } from "./pedido-detalhe.style.js";
-import icons from "../../constants/icons.js";
 import Produto from "../../components/produto/produto.jsx";
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
@@ -10,7 +9,7 @@ import api from "../../constants/api.js";
 function DetalhePedido(props) {
 
     const id_pedido = props.route.params.id_pedido;
-    const [pedido, setPedido] = useState();
+    const [pedido, setPedido] = useState({});
 
     async function LoadPedido() {
 
@@ -38,10 +37,6 @@ function DetalhePedido(props) {
         // Exemplo: await api.get('/pedidos')...
     }
 
-    function itens() {
-
-    };
-
     useFocusEffect(
         useCallback(() => {
             LoadPedidos();
@@ -62,11 +57,12 @@ function DetalhePedido(props) {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
                 return <Produto
-                    key={item.idItem}
-                    foto={item.foto}
+                    // key={item.idItem}
+                    foto={item.icone}
                     nome={item.nome}
+                    qtd={item.qtd}
                     descricao={item.descricao}
-                    valor={item.vlTotal}
+                    valor={item.vl_total}
                 />
             }}
         />
@@ -78,17 +74,26 @@ function DetalhePedido(props) {
 
             <View style={styles.valores}>
                 <Text style={styles.valor}>Subtotal</Text>
-                <Text style={styles.valor}>R$ 66,00</Text>
+                <Text style={styles.valor}>{
+                new Intl.NumberFormat("pt-BR",
+                    { style: "currency", currency: "BRL" }).format(pedido.vl_subtotal)
+                }</Text>
             </View>
 
             <View style={styles.valores}>
                 <Text style={styles.valor}>Taxa de entrega</Text>
-                <Text style={styles.valor}>R$ 5,00</Text>
+                <Text style={styles.valor}>{
+                new Intl.NumberFormat("pt-BR",
+                    { style: "currency", currency: "BRL" }).format(pedido.vl_taxa_entrega)
+                }</Text>
             </View>
 
             <View style={styles.valores}>
                 <Text style={styles.total}>Total</Text>
-                <Text style={styles.total}>R$ 71,00</Text>
+                <Text style={styles.valor}>{
+                new Intl.NumberFormat("pt-BR",
+                    { style: "currency", currency: "BRL" }).format(pedido.vl_total)
+                }</Text>
             </View>
         </View>
 

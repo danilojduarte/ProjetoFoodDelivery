@@ -21,13 +21,15 @@ export const styles = {
     total: {
         fontSize: FONT_SIZE.sm,
         color: COLORS.dark_gray,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginBottom: 20
     },
     containerPedido: {
         width: "100%",        
     },
     textPedido: {
         textAlign: "center",
-        color: COLORS.dark_gray,
+        color: COLORS.green,
+        fontSize: FONT_SIZE.lg
     },
 }

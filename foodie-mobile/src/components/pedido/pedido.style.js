@@ -25,5 +25,8 @@ export const styles = {
     },
     status: {
         color: COLORS.green
+    },
+    statusRed: {
+        color: COLORS.red
     }
 }

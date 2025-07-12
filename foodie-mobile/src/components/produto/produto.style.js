@@ -22,7 +22,7 @@ export const styles = {
     },
     descricao: {
         color: COLORS.medium_gray,
-        fontSize: FONT_SIZE.sm
+        fontSize: FONT_SIZE.xsm
     },
     valor: {
         color: COLORS.dark_gray,

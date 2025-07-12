@@ -4,10 +4,10 @@ import icons from "../../constants/icons.js";
 
 function Produto(props) {
     return <TouchableOpacity style={styles.produto}>
-        <Image source={props.foto} style={styles.foto} />
+        <Image source={{ uri: props.foto}} style={styles.foto} />
 
         <View style={styles.textos}>
-            <Text style={styles.nome}>{props.nome}</Text>
+            <Text style={styles.nome}>{props.qtd} x {props.nome}</Text>
             <Text style={styles.descricao}>{props.descricao}</Text>
         </View>
 

@@ -55,7 +55,8 @@ function AbaPedidos(props) {
                     dt_pedido={item.dt_pedido}
                     status={item.descricao_status}
                     id_pedido={item.id_pedido}
-                    onClickPedido={DetalhePedido} />
+                    onClickPedido={DetalhePedido} 
+                    color={item.color}/>
             }}
 
             contentContainerStyle={styles.containerList}
