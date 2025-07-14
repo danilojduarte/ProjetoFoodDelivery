@@ -24,7 +24,10 @@ function AbaHome(props) {
                 setCategorias(response.data);
             }
         } catch (error) {
-            handleError(error);
+            if (error.response?.data.error)
+                    Alert.alert(error.response.data.error);
+                else
+                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde")
         }
     }
 
@@ -35,7 +38,10 @@ function AbaHome(props) {
                 setBanner(response.data);
             }
         } catch (error) {
-            handleError(error);
+            if (error.response?.data.error)
+                    Alert.alert(error.response.data.error);
+                else
+                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde")
         }
     }
 
