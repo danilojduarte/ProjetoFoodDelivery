@@ -130,7 +130,7 @@ function AbaHome(props) {
     );
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} >
             <View style={styles.headerBar}>
                 <Image source={icons.logo2} style={styles.logo} />
                 <TouchableOpacity onPress={() => props.navigation.navigate("checkout")}>
@@ -148,8 +148,11 @@ function AbaHome(props) {
                 />
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false}>
+            <ScrollView showsVerticalScrollIndicator={false}
+                // Realizada alteração aqui,
+             contentContainerStyle={{ flexGrow: 1 }}>
                 <Categorias dados={categorias} onClick={SearchCategoria}/>
+                
                 <Banners dados={banners} onClick={SearchBanner}/>
 
                 <View>
