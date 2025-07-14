@@ -14,7 +14,8 @@ function Cardapio(props) {
     async function LoadCardapio(id) {
         try {
             const response = await api.get("/empresas/" + id + "/cardapio");
-
+            console.log(id);
+            console.log(response.data);
             if (response.data) {
                 setCardapio(response.data);
             }
@@ -32,7 +33,7 @@ function Cardapio(props) {
 
     return <View style={styles.container}>
         <View style={styles.containerFoto}>
-            <Image source={{ uri: cardapio.foto }} style={styles.foto} resizeMode="contain" />
+            <Image source={{ uri: cardapio.foto }} style={styles.foto} resizeMode="cover" />
 
             <TouchableOpacity style={styles.containerBack} onPress={props.navigation.goBack}>
                 <Image source={icons.back2} style={styles.back} />
@@ -41,8 +42,11 @@ function Cardapio(props) {
 
         <View style={styles.header}>
             <View style={styles.headerTextos}>
-                <Text style={styles.nome}>Nome do estabelecimento</Text>
-                <Text style={styles.taxa}>Taxa de entrega: R$ 5,00</Text>
+                <Text style={styles.nome}>{cardapio.nome}</Text>
+                <Text style={styles.taxa}>Taxa de entrega: {
+                new Intl.NumberFormat("pt-BR",
+                    { style: "currency", currency: "BRL" }).format(cardapio.vl_taxa_entrega)
+                }</Text>
             </View>
 
             <Image source={icons.favoritoFull} style={styles.favorito} />
@@ -52,17 +56,20 @@ function Cardapio(props) {
 
             <View style={styles.location}>
                 <Image source={icons.location} style={styles.locationImg} />
-                <Text style={styles.endereco}>Avenida Brigadeiro Luis Antonio, 1250 - CJ 1651</Text>
+                <Text style={styles.endereco}>
+                    {cardapio.endereco} - {cardapio.bairro} - {cardapio.cidade} -
+                    {cardapio.uf}
+                </Text>
             </View>
 
             {
-                
+                /*
                 cardapio.itens.map((item) => {
                     return <View key={item.idCategoria} style={styles.containerProduto}>
                         <Text style={styles.categoria}>{item.categoria}</Text>
 
                         {
-                            /*
+                            
                             item.itens.map((prod) => {
                                 return <Produto key={prod.idProduto}
                                     idProduto={prod.idProduto}
@@ -72,12 +79,12 @@ function Cardapio(props) {
                                     valor={prod.valor}
                                 />
                             })
-                            */
+                            
                         }
 
                     </View>
                 })
-
+*/
             }
 
         </ScrollView>

@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 23(00:00) Finalizada - Aula finalizada, iniciando aula 24# tela de cardapio|tela empresa;
+// Aula 24(30:00) Ajusatando itens do cardapio das empresas;
