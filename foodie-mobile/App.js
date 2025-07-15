@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 24(30:00) Ajusatando itens do cardapio das empresas;
+// Aula 25(05:49) Iniciando aula #25, Contexto do Carrinho;

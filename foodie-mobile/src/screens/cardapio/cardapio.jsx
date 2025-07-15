@@ -7,24 +7,70 @@ import api from  "../../constants/api.js";
 
 function Cardapio(props) {
 
+    var categoriaAnterior = "";
     const id_empresa = props.route.params.id_empresa;
-    const [cardapio, setCardapio] = useState({});
-
+    const [cardapio, setCardapio] = useState({ itens: [] });
+    const [favorito, setFavorito] = useState("N");
 
     async function LoadCardapio(id) {
+
         try {
             const response = await api.get("/empresas/" + id + "/cardapio");
-            console.log(id);
-            console.log(response.data);
             if (response.data) {
                 setCardapio(response.data);
+                setFavorito(response.data.favorito);
+            }
+
+        } catch (error) {
+            console.log(error);
+            if (error.response?.data.error)
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+        }
+    }
+
+    async function RemoveFavorito(id) {
+
+        try {
+            const response = await api.delete("/empresas/" + id + "/favoritos");
+
+            if (response.data) {
+                setFavorito("N");
             }
         } catch (error) {
             if (error.response?.data.error)
-                    Alert.alert(error.response.data.error);
-                else
-                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde")
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
         }
+    }
+
+    async function AddFavorito(id) {
+
+        try {
+            const response = await api.post("/empresas/" + id + "/favoritos");
+
+            if (response.data) {
+                setFavorito("S");
+            }
+        } catch (error) {
+            if (error.response?.data.error)
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+        }
+    }
+
+    function ClickFavorito() {
+        favorito == "S" ? RemoveFavorito(id_empresa) : AddFavorito(id_empresa);
+    }
+
+    function ClickProduto(id) {
+        props.navigation.navigate("detalhe-produto", {
+            id_produto: id,
+            id_empresa: id_empresa
+        });
     }
 
     useEffect(() => {
@@ -33,9 +79,11 @@ function Cardapio(props) {
 
     return <View style={styles.container}>
         <View style={styles.containerFoto}>
-            <Image source={{ uri: cardapio.foto }} style={styles.foto} resizeMode="cover" />
+            <Image source={{ uri: cardapio.foto }} style={styles.foto}
+                resizeMode="cover" />
 
-            <TouchableOpacity style={styles.containerBack} onPress={props.navigation.goBack}>
+            <TouchableOpacity style={styles.containerBack}
+                onPress={props.navigation.goBack}>
                 <Image source={icons.back2} style={styles.back} />
             </TouchableOpacity>
         </View>
@@ -44,12 +92,15 @@ function Cardapio(props) {
             <View style={styles.headerTextos}>
                 <Text style={styles.nome}>{cardapio.nome}</Text>
                 <Text style={styles.taxa}>Taxa de entrega: {
-                new Intl.NumberFormat("pt-BR",
-                    { style: "currency", currency: "BRL" }).format(cardapio.vl_taxa_entrega)
-                }</Text>
+                    new Intl.NumberFormat("pt-BR",
+                        { style: "currency", currency: "BRL" }).format(cardapio.vl_taxa_entrega)
+                } </Text>
             </View>
 
-            <Image source={icons.favoritoFull} style={styles.favorito} />
+            <TouchableOpacity onPress={ClickFavorito}>
+                <Image source={favorito == "S" ? icons.favoritoFull : icons.favorito}
+                    style={styles.favorito} />
+            </TouchableOpacity>
         </View>
 
         <ScrollView>
@@ -63,28 +114,28 @@ function Cardapio(props) {
             </View>
 
             {
-                /*
                 cardapio.itens.map((item) => {
-                    return <View key={item.idCategoria} style={styles.containerProduto}>
-                        <Text style={styles.categoria}>{item.categoria}</Text>
+                    return <View key={item.id_produto} style={styles.containerProduto}>
 
                         {
-                            
-                            item.itens.map((prod) => {
-                                return <Produto key={prod.idProduto}
-                                    idProduto={prod.idProduto}
-                                    foto={prod.foto}
-                                    nome={prod.nome}
-                                    descricao={prod.descricao}
-                                    valor={prod.valor}
-                                />
-                            })
-                            
+                            categoriaAnterior != item.categoria ?
+                                <Text style={styles.categoria}>{item.categoria}</Text>
+                                : null
                         }
+
+                        <Produto key={item.id_produto}
+                            id_produto={item.id_produto}
+                            foto={item.icone}
+                            nome={item.nome}
+                            descricao={item.descricao}
+                            valor={item.vl_produto}
+                            onClick={ClickProduto}
+                        />
+
+                        {categoriaAnterior = item.categoria}
 
                     </View>
                 })
-*/
             }
 
         </ScrollView>

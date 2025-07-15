@@ -1,12 +1,42 @@
-import { Image, TouchableOpacity, View, Text, TextInput, TouchableOpacityBase } from "react-native";
+import { Image, TouchableOpacity, View, Text, TextInput, TouchableOpacityBase, Alert } from "react-native";
 import { styles } from "./detalhe-produto.style.js";
 import icons from "../../constants/icons.js";
 import Button from "../../components/button/button.jsx";
+import api from "../../constants/api.js";
+import { useEffect, useState } from "react";
+
 
 function DetalheProduto(props) {
+
+    const id_produto = props.route.params.id_produto;
+    const id_empresa = props.route.params.id_empresa;
+    const [produto, setProduto] = useState({});
+
+    async function LoadProduto(id_emp, id_prod) {
+    
+            try {
+                const response = await api.get("/empresas/" + id_emp + "/produtos/" + id_prod);
+                if (response.data) {
+                    setProduto(response.data);
+                }
+    
+            } catch (error) {
+                console.log(error);
+                if (error.response?.data.error)
+                    Alert.alert(error.response.data.error);
+                else
+                    Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+            }
+        }
+
+        useEffect(() => {
+        LoadProduto(id_empresa, id_produto);
+        }, []);
+
     return <View style={styles.container}>
         <View style={styles.containerFoto}>
-            <Image source={icons.produto} style={styles.foto} resizeMode="cover" />
+            <Image source={{ uri: produto.icone }} 
+            style={styles.foto} resizeMode="cover" />
 
             <TouchableOpacity style={styles.containerBack} onPress={props.navigation.goBack}>
                 <Image source={icons.back2} style={styles.back} />
@@ -15,11 +45,12 @@ function DetalheProduto(props) {
 
         <View style={styles.header}>
             <View style={styles.headerTextos}>
-                <Text style={styles.nome}>Pizza Calabresa</Text>
-                <Text style={styles.descricao}>Massa artesanal, mussarela e calabresa.
-                    Serve de 3 a 4 pessoas. Molho e tomate 100% natural
-                    e ingredientes selecionados.</Text>
-                <Text style={styles.valor}>R$ 30,00</Text>
+                <Text style={styles.nome}>{produto.nome}</Text>
+                <Text style={styles.descricao}>{produto.descricao}</Text>
+                <Text style={styles.valor}>{
+                    new Intl.NumberFormat("pt-BR",
+                        { style: "currency", currency: "BRL" }).format(produto.vl_produto)
+                }</Text>
             </View>
         </View>
 
