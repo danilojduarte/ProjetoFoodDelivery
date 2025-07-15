@@ -9,7 +9,7 @@ export const styles = {
     banner: {
         paddingRight: 10,
         marginTop: 15,
-        marginBottom: 15
+        marginBottom: 10
     },
     descricao: {
         fontSize: FONT_SIZE.xsm,

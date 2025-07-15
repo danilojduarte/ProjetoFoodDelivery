@@ -7,6 +7,7 @@ export const styles = {
     // Realizada alteração aqui,
     paddingHorizontal: 12,
     paddingTop: 12,
+    paddingBottom: 0,
     },
     headerBar: {
         height: 45,
