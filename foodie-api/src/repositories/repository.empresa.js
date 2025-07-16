@@ -70,12 +70,14 @@ async function ExcluirFavorito(id_usuario, id_empresa) {
 
 async function Cardapio(id_usuario, id_empresa) {
 
+    //Dados do Restaurante -- --
     let sql = `select case when u.id_favorito is null then 'N' else 'S' end as favorito, e.*
     from  empresa e
     left join usuario_favorito u on (u.id_empresa = e.id_empresa and u.id_usuario = ?)
     where e.id_empresa = ?`;
 
     const empresa = await execute(sql, [id_usuario, id_empresa]);
+    let retorno = empresa[0];
 
     //-----------------
 
@@ -88,8 +90,6 @@ async function Cardapio(id_usuario, id_empresa) {
     const itens = await execute(sql, [id_empresa]);
 
     //-----------------
-
-    let retorno = empresa[0];
 
     retorno.itens = itens;
 
