@@ -79,19 +79,34 @@ async function Cardapio(id_usuario, id_empresa) {
     const empresa = await execute(sql, [id_usuario, id_empresa]);
     let retorno = empresa[0];
 
-    //-----------------
+    retorno.categorias = [];
 
-    sql = `select p.*, c.categoria
+    //Categorias do Restaurante -- --
+     sql = `select distinct c.id_categoria, c.categoria
     from produto p
     join produto_categoria c on (c.id_empresa = p.id_empresa and c.id_categoria = p.id_categoria)
     where p.id_empresa = ?
     order by c.ordem, p.nome`;
 
-    const itens = await execute(sql, [id_empresa]);
+    const categorias_unicas = await execute(sql, [id_empresa]);
+    
+    for (const cat of categorias_unicas) {
 
-    //-----------------
+        //Busca produtos que pertencem a categoria do loop -- --
+        sql = `select p.*, c.categoria
+        from produto p
+        join produto_categoria c on (c.id_empresa = p.id_empresa and c.id_categoria = p.id_categoria)
+        where p.id_empresa = ?
+        and p.id_categoria = ?
+        order by c.ordem, p.nome`;
 
-    retorno.itens = itens;
+        const itens = await execute(sql, [id_empresa, cat.id_categoria]);
+        
+        cat.itens = [itens];
+
+        retorno.categorias.push(cat);
+    }
+    
 
     return retorno;
 }

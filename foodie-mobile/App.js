@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 25(05:49) Iniciando aula #25, Contexto do Carrinho;
+// Aula 25(31:55) Rotas banco de dados ajustada, retornando ao app para ajustar comandos (Contexto do Carrinho);
