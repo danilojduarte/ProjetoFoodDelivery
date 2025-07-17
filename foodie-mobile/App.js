@@ -7,4 +7,4 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 25(31:55) Rotas banco de dados ajustada, retornando ao app para ajustar comandos (Contexto do Carrinho);
+// Aula 25(45:17) Ajustando pedidos para serem add ao carrinho, atribuido 2 produtos, subtituir o segundo por produto diferente para teste (Contexto do Carrinho);
