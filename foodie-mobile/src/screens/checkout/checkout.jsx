@@ -1,11 +1,13 @@
 import { Image, TouchableOpacity, View, Text, FlatList } from "react-native";
 import { styles } from "./checkout.style.js";
 import icons from "../../constants/icons.js";
-import { pedido } from "../../constants/dados.js";
 import Produto from "../../components/produto/produto.jsx";
 import Button from "../../components/button/button.jsx";
+import { useState } from "react";
 
 function Checkout(props) {
+
+    const [pedido, setPedido] = useState({});
 
     function ClickDelete() {
         alert("OK");
@@ -14,15 +16,17 @@ function Checkout(props) {
     return <View style={styles.container}>
 
         <FlatList data={pedido.itens}
-            keyExtractor={(item) => item.idItem}
+            keyExtractor={(item) => item.id_produto.toString()}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Produto key={item.idItem}
-                    foto={item.foto}
+                return <Produto key={item.id_produto}
+                    id_produto={item.id_produto}
+                    foto={item.icone}
                     nome={item.nome}
                     descricao={item.descricao}
-                    valor={item.vlTotal}
-                    onClickDelete={ClickDelete} />
+                    valor={item.vl_produto}
+                    onClick={ClickDelete}
+                />
             }}
         />
 
