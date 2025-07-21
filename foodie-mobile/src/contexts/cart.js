@@ -2,7 +2,12 @@ import { createContext, useState } from "react";
 
 const CartContext = createContext({});
 
-const itens = [[{
+const pedido = {
+    vl_subtotal: 50,
+    vl_taxa_entrega: 5,
+    vl_total: 55,
+    itens: [
+    {
       
     id_produto: 1,
     id_empresa: 2,
@@ -29,11 +34,14 @@ const itens = [[{
     qtd: 2,
 
     },
-  ]];
+  ]
+
+};
+
 
 function CartProvider(props) {
 
-    const [cart, setCart] = useState(itens);
+    const [cart, setCart] = useState(pedido);
 
     return <CartContext.Provider value={{ cart, setCart }}>
         {props.children}
