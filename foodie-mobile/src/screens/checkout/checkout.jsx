@@ -4,10 +4,13 @@ import icons from "../../constants/icons.js";
 import Produto from "../../components/produto/produto.jsx";
 import Button from "../../components/button/button.jsx";
 import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.js";
+import { useEffect } from "react";
 
 function Checkout(props) {
 
-    const [pedido, setPedido] = useState({});
+    const { cart, setCart } = useContext(CartContext);
 
     function ClickDelete() {
         alert("OK");
@@ -15,7 +18,7 @@ function Checkout(props) {
 
     return <View style={styles.container}>
 
-        <FlatList data={pedido.itens}
+        <FlatList data={cart.itens}
             keyExtractor={(item) => item.id_produto.toString()}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
