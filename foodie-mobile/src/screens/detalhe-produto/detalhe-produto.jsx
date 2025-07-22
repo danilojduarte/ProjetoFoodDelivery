@@ -11,6 +11,7 @@ function DetalheProduto(props) {
     const id_produto = props.route.params.id_produto;
     const id_empresa = props.route.params.id_empresa;
     const [produto, setProduto] = useState({});
+    const [qtd, setQtd] = useState(1);
 
     async function LoadProduto(id_emp, id_prod) {
     
