@@ -10,8 +10,7 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 25(00:00) Aula, #25 finalizada, iniciando aula 26# para atribuir itens ao carrinho;
-
+// Aula 26(00:00) Add function qtd aos componente "button";
 
 //Verificar código do componente que salva  os dados no storage do aparelho.
 //Ajusta padding da tela do carrinho;

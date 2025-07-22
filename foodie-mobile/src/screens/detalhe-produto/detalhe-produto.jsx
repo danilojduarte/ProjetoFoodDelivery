@@ -29,6 +29,10 @@ function DetalheProduto(props) {
                     Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
             }
         }
+    
+    function AlterarQtd(valor) {
+        setQtd(qtd + valor);
+    }
 
         useEffect(() => {
         LoadProduto(id_empresa, id_produto);
@@ -63,13 +67,13 @@ function DetalheProduto(props) {
         </View>
 
         <View style={styles.footer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => AlterarQtd(-1)}>
                 <Image source={icons.menos} style={styles.imgQtd} />
             </TouchableOpacity>
 
-            <Text style={styles.qtd}>1</Text>
+            <Text style={styles.qtd}>{qtd}</Text>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => AlterarQtd(1)}>
                 <Image source={icons.mais} style={styles.imgQtd} />
             </TouchableOpacity>
 
