@@ -12,6 +12,7 @@ function DetalheProduto(props) {
     const id_empresa = props.route.params.id_empresa;
     const [produto, setProduto] = useState({});
     const [qtd, setQtd] = useState(1);
+    const [obs, setObs] = useState("");
 
     async function LoadProduto(id_emp, id_prod) {
     
@@ -31,6 +32,9 @@ function DetalheProduto(props) {
         }
     
     function AlterarQtd(valor) {
+        if (qtd + valor < 1)
+            return;
+
         setQtd(qtd + valor);
     }
 
@@ -63,7 +67,9 @@ function DetalheProduto(props) {
             <Text style={styles.descricao}>Observações</Text>
             <TextInput style={styles.multiline}
                 multiline={true}
-                numberOfLines={5} />
+                numberOfLines={5} 
+                onChangeText={(text) => setObs(text)}
+                />
         </View>
 
         <View style={styles.footer}>
