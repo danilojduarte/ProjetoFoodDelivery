@@ -10,7 +10,7 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 26(20:14) Ajustando tela de qtd produtos;
+// Aula 26(36:09) Concluído atribuição de itens ao cart;
 
 //Verificar código do componente que salva  os dados no storage do aparelho.
 //Ajusta padding da tela do carrinho;

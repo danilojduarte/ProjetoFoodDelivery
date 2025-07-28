@@ -3,7 +3,12 @@ import { styles } from "./detalhe-produto.style.js";
 import icons from "../../constants/icons.js";
 import Button from "../../components/button/button.jsx";
 import api from "../../constants/api.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid'; // Import uuid for generating unique
+
+import { CartContext } from "../../contexts/cart.js";
 
 
 function DetalheProduto(props) {
@@ -13,6 +18,26 @@ function DetalheProduto(props) {
     const [produto, setProduto] = useState({});
     const [qtd, setQtd] = useState(1);
     const [obs, setObs] = useState("");
+
+    const {AddItem} = useContext(CartContext);
+
+    function AddProdutoCart(){
+        const item = {
+            id_item: uuidv4(),
+            id_produto: id_produto,
+            icone: produto.icone,
+            nome: produto.nome,
+            descricao: produto.descricao,
+            obs: obs,
+            qtd: qtd,
+            vl_unitario: produto.vl_produto,
+            vl_total: qtd * produto.vl_produto
+            
+        }
+
+        AddItem(item);
+        props.navigation.goBack();
+    }
 
     async function LoadProduto(id_emp, id_prod) {
     
@@ -84,7 +109,7 @@ function DetalheProduto(props) {
             </TouchableOpacity>
 
             <View style={styles.footerBtn}>
-                <Button texto="Inserir" />
+                <Button texto="Inserir" onPress={AddProdutoCart}/>
             </View>
         </View>
 
