@@ -2,7 +2,7 @@ import { Alert, Image, View, Text, ScrollView, TouchableOpacity, Platform, Statu
 import { styles } from "./aba-home.style.js";
 import icons from "../../constants/icons.js";
 import TextBox from "../../components/textbox/textbox.jsx";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 import Categorias from "../../components/categorias/categorias.jsx";
 import Banners from "../../components/banners/banners.jsx";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
@@ -115,6 +115,7 @@ function AbaHome(props) {
           <Image source={icons.logo2} style={styles.logo} />
           <TouchableOpacity onPress={() => props.navigation.navigate("checkout")}>
             <Image source={icons.cart} style={styles.cart} />
+            <Text style={styles.cartQtd}>5</Text>
           </TouchableOpacity>
         </View>
 
