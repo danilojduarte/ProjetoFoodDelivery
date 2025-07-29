@@ -8,12 +8,12 @@ import Banners from "../../components/banners/banners.jsx";
 import Restaurante from "../../components/restaurante/restaurante.jsx";
 import api from "../../constants/api.js";
 import { useFocusEffect } from "@react-navigation/native";
+import { CartContext } from "../../contexts/cart.js";
 
 function AbaHome(props) {
-  const [busca, setBusca] = useState("");
-  const [categorias, setCategorias] = useState([]);
-  const [banners, setBanner] = useState([]);
-  const [restaurantes, setRestaurantes] = useState([]);
+
+  const { itens } = useContext(CartContext);
+
 
   // Funções para buscar dados
   async function LoadCategory() {
@@ -82,6 +82,11 @@ function AbaHome(props) {
     props.navigation.navigate("busca", { id_banner: id });
   }
 
+  const [busca, setBusca] = useState("");
+  const [categorias, setCategorias] = useState([]);
+  const [banners, setBanner] = useState([]);
+  const [restaurantes, setRestaurantes] = useState([]);
+
   useEffect(() => {
     LoadCategory();
     LoadBanner();
@@ -115,7 +120,7 @@ function AbaHome(props) {
           <Image source={icons.logo2} style={styles.logo} />
           <TouchableOpacity onPress={() => props.navigation.navigate("checkout")}>
             <Image source={icons.cart} style={styles.cart} />
-            <Text style={styles.cartQtd}>5</Text>
+            <Text style={styles.cartQtd}>{itens.length}</Text>
           </TouchableOpacity>
         </View>
 
