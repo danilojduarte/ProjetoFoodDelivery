@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 function Checkout(props) {
 
-    const { itens, setItens } = useContext(CartContext);
+    const { itens, setItens, entrega, empresa, subtotal, total } = useContext(CartContext);
 
     function ClickDelete() {
         alert("OK");
@@ -40,17 +40,26 @@ function Checkout(props) {
 
             <View style={styles.valores}>
                 <Text style={styles.valor}>Subtotal</Text>
-                <Text style={styles.valor}>R$ 66,00</Text>
+                <Text style={styles.valor}>{
+                    new Intl.NumberFormat("pt-BR",
+                        { style: "currency", currency: "BRL" }).format(subtotal)
+                } </Text>
             </View>
 
             <View style={styles.valores}>
                 <Text style={styles.valor}>Taxa de entrega</Text>
-                <Text style={styles.valor}>R$ 5,00</Text>
+                <Text style={styles.valor}>{
+                    new Intl.NumberFormat("pt-BR",
+                        { style: "currency", currency: "BRL" }).format(entrega)
+                } </Text>
             </View>
 
             <View style={styles.valores}>
                 <Text style={styles.total}>Total</Text>
-                <Text style={styles.total}>R$ 71,00</Text>
+                <Text style={styles.total}>{
+                    new Intl.NumberFormat("pt-BR",
+                        { style: "currency", currency: "BRL" }).format(total)
+                } </Text>
             </View>
         </View>
 

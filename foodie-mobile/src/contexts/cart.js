@@ -8,6 +8,7 @@ function CartProvider(props) {
     const [entrega, setEntrega] = useState(0);
     const [subtotal, setSubtotal] = useState(0);
     const [total, setTotal] = useState(0);
+    const [empresa, setEmpresa] = useState({});
 
     function AddItem(item) {
         let novoItens = itens;
@@ -18,7 +19,8 @@ function CartProvider(props) {
 
     return <CartContext.Provider value={{ 
         itens, setItens, entrega, setEntrega, 
-        subtotal, setSubtotal, total, setTotal, AddItem
+        subtotal, setSubtotal, total, setTotal, AddItem,
+        empresa, setEmpresa
         }}>
         {props.children}
     </CartContext.Provider>

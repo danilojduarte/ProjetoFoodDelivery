@@ -21,7 +21,7 @@ function DetalheProduto(props) {
     const [qtd, setQtd] = useState(1);
     const [obs, setObs] = useState("");
 
-    const {AddItem} = useContext(CartContext);
+    const {AddItem, setEmpresa, setEntrega} = useContext(CartContext);
 
     function AddProdutoCart(){
         const item = {
@@ -37,7 +37,11 @@ function DetalheProduto(props) {
             
         }
 
+        setEmpresa(id_empresa);
+        setEntrega(vl_taxa_entrega);
         AddItem(item);
+
+        
         props.navigation.goBack();
     }
 
