@@ -68,7 +68,8 @@ function Cardapio(props) {
     function ClickProduto(id) {
         props.navigation.navigate("detalhe-produto", {
             id_produto: id,
-            id_empresa: id_empresa
+            id_empresa: id_empresa,
+            vl_taxa_entrega: cardapio.vl_taxa_entrega
         });
     }
 

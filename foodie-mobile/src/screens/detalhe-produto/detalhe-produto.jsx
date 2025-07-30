@@ -15,6 +15,8 @@ function DetalheProduto(props) {
 
     const id_produto = props.route.params.id_produto;
     const id_empresa = props.route.params.id_empresa;
+    const vl_taxa_entrega = props.route.params.vl_taxa_entrega;
+
     const [produto, setProduto] = useState({});
     const [qtd, setQtd] = useState(1);
     const [obs, setObs] = useState("");
