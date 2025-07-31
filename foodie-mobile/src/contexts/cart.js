@@ -8,13 +8,17 @@ function CartProvider(props) {
     const [entrega, setEntrega] = useState(0);
     const [subtotal, setSubtotal] = useState(0);
     const [total, setTotal] = useState(0);
-    const [empresa, setEmpresa] = useState({});
+    const [empresa, setEmpresa] = useState(0);
 
     function AddItem(item) {
         let novoItens = itens;
         novoItens.push(item);
 
         setItens(novoItens);
+    }
+
+    function CalcularValores(){
+        const subtotalTemp = itens.reduce(() => {}, 0) ;
     }
 
     return <CartContext.Provider value={{ 
