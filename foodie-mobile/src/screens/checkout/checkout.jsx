@@ -10,25 +10,62 @@ import { useEffect } from "react";
 
 function Checkout(props) {
 
-    const { itens, setItens, entrega, empresa, subtotal, total } = useContext(CartContext);
+    const { itens, setItens, entrega, empresa, subtotal, 
+        total, CalculaValores } = useContext(CartContext);
 
-    function ClickDelete() {
-        alert("OK");
+    function ClickDelete(id_item) {
+        const itensNovo = itens.filter((item) => {
+            return item.id_item != id_item;
+        });
+
+        setItens(itensNovo);
     }
+
+    // async function EnviarPedido() {
+
+    //     try {
+
+    //         const ped = {
+    //             id_empresa: empresa,
+    //             vl_subtotal: subtotal,
+    //             vl_taxa_entrega: entrega,
+    //             vl_total: total,
+    //             itens: itens
+    //         };
+
+    //         const response = await api.post("/pedidos", ped);
+
+    //         if (response.data) {
+    //             ClickLimpar();
+    //         }
+    //     } catch (error) {
+    //         if (error.response?.data.error)
+    //             Alert.alert(error.response.data.error);
+    //         else
+    //             Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+    //     }
+    // }
+
+    useEffect(() => {
+        CalculaValores();
+    }, []);
 
     return <View style={styles.container}>
 
         <FlatList data={itens}
-            keyExtractor={(item) => item.id_produto.toString()}
+            keyExtractor={(item) => item.id_item.toString()}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Produto key={item.id_produto}
+                return <Produto key={item.id_item}
                     id_produto={item.id_produto}
                     foto={item.icone}
                     nome={item.nome}
                     descricao={item.descricao}
-                    valor={item.vl_produto}
-                    onClick={ClickDelete}
+                    obs={item.obs}
+                    valor={item.vl_total}
+                    id_item={item.id_item}
+                    qtd={item.qtd}
+                    onClickDelete={ClickDelete}
                 />
             }}
         />
@@ -64,7 +101,7 @@ function Checkout(props) {
         </View>
 
         <View style={styles.conatinerBtn}>
-            <Button texto="Finalizar Pedido" />
+            <Button texto="Finalizar Pedido"/>
         </View>
 
     </View>

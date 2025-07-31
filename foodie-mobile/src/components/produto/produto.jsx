@@ -25,7 +25,7 @@ function Produto(props) {
             {
                 props.onClickDelete &&
                 <TouchableOpacity style={styles.containerDelete}
-                    onPress={() => props.onClickDelete()}>
+                    onPress={() => props.onClickDelete(props.id_item)}>
                     <Image source={icons.remove} style={styles.delete} />
                 </TouchableOpacity>
             }

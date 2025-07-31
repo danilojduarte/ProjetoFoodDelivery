@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const CartContext = createContext({});
 
@@ -17,15 +17,24 @@ function CartProvider(props) {
         setItens(novoItens);
     }
 
-    function CalcularValores(){
-        const subtotalTemp = itens.reduce(() => {}, 0) ;
+    function CalculaValores() {
+        const subtotalTemp = itens.reduce((prev, atual) => {
+            return prev + atual.vl_total;
+        }, 0);
+
+        setSubtotal(subtotalTemp);
+        setTotal(subtotalTemp + entrega);
     }
 
-    return <CartContext.Provider value={{ 
-        itens, setItens, entrega, setEntrega, 
+    useEffect(() => {
+        CalculaValores();
+    }, [itens]);
+
+    return <CartContext.Provider value={{
+        itens, setItens, entrega, setEntrega,
         subtotal, setSubtotal, total, setTotal, AddItem,
-        empresa, setEmpresa
-        }}>
+        empresa, setEmpresa, CalculaValores
+    }}>
         {props.children}
     </CartContext.Provider>
 }

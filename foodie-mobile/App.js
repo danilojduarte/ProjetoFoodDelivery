@@ -10,7 +10,7 @@ export default function App() {
   </AuthProvider>
 }
 
-// Aula 27(22:02) Ajustando valores total do pedido;
+// Aula 27(38:49) Adicionando observações do pedido;
 
 //Verificar código do componente que salva  os dados no storage do aparelho.
 //Ajusta padding da tela do carrinho;
