@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity, View, Text, FlatList } from "react-native";
+import { Alert, TouchableOpacity, View, Text, FlatList } from "react-native";
 import { styles } from "./checkout.style.js";
 import icons from "../../constants/icons.js";
 import Produto from "../../components/produto/produto.jsx";
@@ -7,8 +7,13 @@ import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.js";
 import { useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import api from "../../constants/api.js";
+
 
 function Checkout(props) {
+
+    const nav = useNavigation();
 
     const { itens, setItens, entrega, empresa, subtotal, 
         total, CalculaValores } = useContext(CartContext);
@@ -21,33 +26,48 @@ function Checkout(props) {
         setItens(itensNovo);
     }
 
-    // async function EnviarPedido() {
 
-    //     try {
+    function ClickLimpar() {
+        setItens([]);
+        props.navigation.goBack();
+    }
 
-    //         const ped = {
-    //             id_empresa: empresa,
-    //             vl_subtotal: subtotal,
-    //             vl_taxa_entrega: entrega,
-    //             vl_total: total,
-    //             itens: itens
-    //         };
+    async function EnviarPedido() {
 
-    //         const response = await api.post("/pedidos", ped);
+        try {
 
-    //         if (response.data) {
-    //             ClickLimpar();
-    //         }
-    //     } catch (error) {
-    //         if (error.response?.data.error)
-    //             Alert.alert(error.response.data.error);
-    //         else
-    //             Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
-    //     }
-    // }
+            const ped = {
+                id_empresa: empresa,
+                vl_subtotal: subtotal,
+                vl_taxa_entrega: entrega,
+                vl_total: total,
+                itens: itens
+            };
+
+            const response = await api.post("/pedidos", ped);
+
+            if (response.data) {
+                ClickLimpar();
+            }
+        } catch (error) {
+            if (error.response?.data.error)
+                Alert.alert(error.response.data.error);
+            else
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde");
+        }
+    }
+
 
     useEffect(() => {
         CalculaValores();
+
+        nav.setOptions({
+            headerRight: () => {
+                    return <TouchableOpacity onPress={ClickLimpar}>
+                        <Text style={styles.btnLimpar}>Limpar</Text>
+                    </TouchableOpacity>
+                }
+            });
     }, []);
 
     return <View style={styles.container}>
@@ -101,7 +121,7 @@ function Checkout(props) {
         </View>
 
         <View style={styles.conatinerBtn}>
-            <Button texto="Finalizar Pedido"/>
+            <Button texto="Finalizar Pedido" onPress={EnviarPedido}/>
         </View>
 
     </View>

@@ -49,14 +49,15 @@ function AbaPedidos(props) {
             keyExtractor={(ped) => ped.id_pedido.toString()}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Pedido logotipo={item.icone}
+                return <Pedido key={item.id_item}
+                    logotipo={item.icone}
                     nome={item.nome}
                     valor={item.vl_total}
                     dt_pedido={item.dt_pedido}
                     status={item.descricao_status}
                     id_pedido={item.id_pedido}
-                    onClickPedido={DetalhePedido} 
-                    color={item.cor}/>
+                    onClickPedido={DetalhePedido}
+                    color={item.cor} />
             }}
 
             contentContainerStyle={styles.containerList}

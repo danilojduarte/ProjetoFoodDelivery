@@ -57,10 +57,11 @@ function DetalhePedido(props) {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
                 return <Produto
-                    // key={item.idItem}
+                    key={item.idItem}
                     foto={item.icone}
                     nome={item.nome}
                     qtd={item.qtd}
+                    obs={item.obs}
                     descricao={item.descricao}
                     valor={item.vl_total}
                 />
