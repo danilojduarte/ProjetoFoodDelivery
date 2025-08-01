@@ -13,7 +13,10 @@ function Produto(props) {
                 : <Text style={styles.nome}>{props.nome}</Text>
             }
             
-            <Text style={styles.descricao}>{props.descricao}</Text>
+            <Text style={styles.descricao}>
+                {props.descricao}
+                {props.obs && " - " + props.obs}
+                </Text>
         </View>
 
         <View>
