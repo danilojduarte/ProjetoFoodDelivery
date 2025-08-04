@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity, View, Text, TextInput, TouchableOpacityBase, Alert } from "react-native";
+import { Image, TouchableOpacity, View, Text, TextInput, TouchableOpacityBase, Alert, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import { styles } from "./detalhe-produto.style.js";
 import icons from "../../constants/icons.js";
 import Button from "../../components/button/button.jsx";
@@ -74,51 +74,55 @@ function DetalheProduto(props) {
         }, []);
 
     return <View style={styles.container}>
-        <View style={styles.containerFoto}>
-            <Image source={{ uri: produto.icone }} 
-            style={styles.foto} resizeMode="cover" />
 
-            <TouchableOpacity style={styles.containerBack} onPress={props.navigation.goBack}>
-                <Image source={icons.back2} style={styles.back} />
-            </TouchableOpacity>
-        </View>
+        <ScrollView>
+            <View style={styles.containerFoto}>
+                <Image source={{ uri: produto.icone }} 
+                style={styles.foto} resizeMode="cover" />
 
-        <View style={styles.header}>
-            <View style={styles.headerTextos}>
-                <Text style={styles.nome}>{produto.nome}</Text>
-                <Text style={styles.descricao}>{produto.descricao}</Text>
-                <Text style={styles.valor}>{
-                    new Intl.NumberFormat("pt-BR",
-                        { style: "currency", currency: "BRL" }).format(produto.vl_produto)
-                }</Text>
+                <TouchableOpacity style={styles.containerBack} onPress={props.navigation.goBack}>
+                    <Image source={icons.back2} style={styles.back} />
+                </TouchableOpacity>
             </View>
-        </View>
 
-        <View style={styles.headerObs}>
-            <Text style={styles.descricao}>Observações</Text>
-            <TextInput style={styles.multiline}
-                multiline={true}
-                numberOfLines={5} 
-                onChangeText={(text) => setObs(text)}
-                />
-        </View>
-
-        <View style={styles.footer}>
-            <TouchableOpacity onPress={() => AlterarQtd(-1)}>
-                <Image source={icons.menos} style={styles.imgQtd} />
-            </TouchableOpacity>
-
-            <Text style={styles.qtd}>{qtd}</Text>
-
-            <TouchableOpacity onPress={() => AlterarQtd(1)}>
-                <Image source={icons.mais} style={styles.imgQtd} />
-            </TouchableOpacity>
-
-            <View style={styles.footerBtn}>
-                <Button texto="Inserir" onPress={AddProdutoCart}/>
+            <View style={styles.header}>
+                <View style={styles.headerTextos}>
+                    <Text style={styles.nome}>{produto.nome}</Text>
+                    <Text style={styles.descricao}>{produto.descricao}</Text>
+                    <Text style={styles.valor}>{
+                        new Intl.NumberFormat("pt-BR",
+                            { style: "currency", currency: "BRL" }).format(produto.vl_produto)
+                    }</Text>
+                </View>
             </View>
-        </View>
 
+            <View style={styles.headerObs}>
+                <Text style={styles.descricao}>Observações</Text>
+                <TextInput style={styles.multiline}
+                    multiline={true}
+                    numberOfLines={5} 
+                    onChangeText={(text) => setObs(text)}
+                    />
+            </View>
+        </ScrollView>
+
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+            <View style={styles.footer}>
+                <TouchableOpacity onPress={() => AlterarQtd(-1)}>
+                    <Image source={icons.menos} style={styles.imgQtd} />
+                </TouchableOpacity>
+
+                <Text style={styles.qtd}>{qtd}</Text>
+
+                <TouchableOpacity onPress={() => AlterarQtd(1)}>
+                    <Image source={icons.mais} style={styles.imgQtd} />
+                </TouchableOpacity>
+
+                <View style={styles.footerBtn}>
+                    <Button texto="Inserir" onPress={AddProdutoCart}/>
+                </View>
+            </View>
+        </KeyboardAvoidingView>
     </View>
 }
 

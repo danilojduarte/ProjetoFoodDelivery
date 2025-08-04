@@ -64,9 +64,9 @@ export const styles = {
         textAlignVertical: "top"
     },
     footer: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
+        //position: "absolute",
+        //bottom: 0,
+        //left: 0,
         flexDirection: "row",
         padding: 10,
         alignItems: "center"
