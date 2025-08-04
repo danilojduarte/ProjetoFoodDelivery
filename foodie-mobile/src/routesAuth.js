@@ -25,6 +25,7 @@ function RoutesAuth() {
                 headerTitleAlign: "center",
                 headerTintColor: COLORS.dark_gray,
                 headerShadowVisible: false,
+                headerBackTitle: "Voltar",
             }} />            
 
             <Stack.Screen name="checkout" component={Checkout} options={{
@@ -33,13 +34,15 @@ function RoutesAuth() {
                 headerTitleAlign: "center",
                 headerTintColor: COLORS.dark_gray,
                 animation: "slide_from_bottom",
+                headerBackTitle: "Voltar",
             }} />
 
             <Stack.Screen name="detalhe-pedido" component={DetalhePedido} options={{
                 headerShadowVisible: false,
                 title: "Detalhes do Pedido",
                 headerTitleAlign: "center",
-                animation: "slide_from_bottom"
+                animation: "slide_from_bottom",
+                headerBackTitle: "Voltar",
             }} />
 
             <Stack.Screen name="detalhe-produto" component={DetalheProduto} options={{
