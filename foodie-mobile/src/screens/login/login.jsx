@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TouchableOpacity, Alert, KeyboardAvoidingView } from "react-native";
 import { styles } from "./login.style.js";
 import Header from "../../components/header/header.jsx";
 import TextBox from "../../components/textbox/textbox.jsx";
@@ -56,7 +56,7 @@ function Login(props) {
         CarregarDados();
     }, []);
 
-    return <View style={styles.container}>
+    return <KeyboardAvoidingView style={styles.container} behavior="padding">
         <Header texto={email} />
 
         <View style={styles.formGroup}>
@@ -83,7 +83,7 @@ function Login(props) {
                 <Text style={styles.footerText}>Criar minha conta.</Text>
             </TouchableOpacity>
         </View>
-    </View>
+    </KeyboardAvoidingView>
 }
 
 export default Login;
