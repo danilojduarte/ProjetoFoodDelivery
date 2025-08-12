@@ -3,20 +3,26 @@ import { styles } from "./aba-perfil.style.js";
 import icons from "../../constants/icons.js";
 import { SaveUsuario } from "../../storage/storage.usuario.js";
 import { AuthContext } from "../../contexts/auth.js";
-import { useContext, useCallback } from "react";
+import { useContext, useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
+import api from "../../constants/api.js";
 
 function AbaPerfil() {
     const { setUser } = useContext(AuthContext);
+    const [perfil, setPerfil] = useState(null);
 
     function Logout() {
         SaveUsuario({});
         setUser({});
     }
 
-    function LoadPerfil() {
-        console.log("Aba Perfil focada — aqui você pode buscar dados atualizados do usuário");
-        // Exemplo: api.get("/meu-perfil")...
+    async function LoadPerfil() {
+        try {
+            const response = await api.get("/meu-perfil");
+            setPerfil(response.data);
+        } catch (error) {
+            console.log("Erro ao carregar perfil", error);
+        }
     }
 
     useFocusEffect(
@@ -25,54 +31,38 @@ function AbaPerfil() {
         }, [])
     );
 
-    return <View style={styles.container}>
+    if (!perfil) {
+        return (
+            <View style={styles.container}>
+                <Text>Carregando perfil...</Text>
+            </View>
+        );
+    }
 
-        <TouchableOpacity style={[styles.item, styles.borderTop]}>
-            <View style={styles.containerIcone}>
-                <Image source={icons.endereco} style={styles.icone} />
+    return (
+        <View style={styles.container}>
+            <View style={styles.infoContainer}>
+                <Text style={styles.nome}>{perfil.nome}</Text>
+                <Text style={styles.email}>{perfil.email}</Text>
+                <Text style={styles.endereco}>
+                    {perfil.endereco}, {perfil.numero} - {perfil.bairro}
+                </Text>
+                <Text style={styles.endereco}>
+                    {perfil.cidade} - {perfil.estado}, {perfil.cep}
+                </Text>
             </View>
 
-            <View style={styles.textos}>
-                <Text style={styles.titulo}>Endereço</Text>
-                <Text style={styles.subtitulo}>Meu endereço de entrega</Text>
-            </View>
-
-            <View style={styles.containerIcone}>
-                <Image source={icons.more} style={styles.more} />
-            </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.item}>
-            <View style={styles.containerIcone}>
-                <Image source={icons.dados} style={styles.icone} />
-            </View>
-
-            <View style={styles.textos}>
-                <Text style={styles.titulo}>Meus Dados</Text>
-                <Text style={styles.subtitulo}>Informações da minha conta</Text>
-            </View>
-
-            <View style={styles.containerIcone}>
-                <Image source={icons.more} style={styles.more} />
-            </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.item} onPress={Logout}>
-            <View style={styles.containerIcone}>
-                <Image source={icons.logout} style={styles.icone} />
-            </View>
-
-            <View style={styles.textos}>
-                <Text style={styles.titulo}>Desconectar</Text>
-                <Text style={styles.subtitulo}>Desconectar seu usuário desse aparelho</Text>
-            </View>
-
-            <View style={styles.containerIcone}>
-                <Image source={icons.more} style={styles.more} />
-            </View>
-        </TouchableOpacity>
-
-    </View>
+            <TouchableOpacity style={styles.item} onPress={Logout}>
+                <View style={styles.containerIcone}>
+                    <Image source={icons.logout} style={styles.icone} />
+                </View>
+                <View style={styles.textos}>
+                    <Text style={styles.titulo}>Desconectar</Text>
+                    <Text style={styles.subtitulo}>Sair do aplicativo</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
+    );
 }
 
 export default AbaPerfil;
